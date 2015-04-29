@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="{{ page.seoLang }}">
+	<head>
+		<meta charset="utf-8" />
+		<title>{{ page.title }}</title>
+
+		{% include basekit.headScript %}
+	</head>
+	<body class="{{ page.backgroundClass }}">
+
+		{% block content %}
+		{% endblock %}
+
+		{% include basekit.bodyScript %}
+
+	</body>
+</html>
