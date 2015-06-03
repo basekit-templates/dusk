@@ -47,9 +47,29 @@
 }
 
 
+// Button inheritance elements
+input[type="search"],
+input[type="email"],
+input[type="password"],
+textarea,
+.input--single-line,
+.select-wrap select,
+.review-link {
+	.button;
+}
+
+
 // Buttons
 .button,
-button {
+button,
+.item-remove,
+.quantity-wrap .button--quantity,
+.review-link {
+	width: auto;
+	height: auto;
+	padding: 4px 12px;
+	line-height: @font-swatch7-line-height;
+	transition: .2s;
 	border: 1px solid fadeout(@font-swatch7-background-color, -100%);
 }
 
@@ -80,10 +100,99 @@ pre, code {
 	}
 	select {
 		height: auto;
-		.button;
 		-webkit-appearance: none;
 		border: none;
 		margin-right: -12px;
 		padding-right: 30px;
 	}
+}
+
+
+// Social links
+.social-name {
+	display: none;
+}
+
+
+// Icons
+.icon {
+	&:hover {
+		text-decoration: none;
+	}
+	&--twitter&:before {
+		color: #00aced;
+	}
+	&--facebook&:before {
+		color: #3b5998;
+	}
+	&--rss&:before {
+		color: orange;
+	}
+	&--linkedin&:before {
+		color: #007bb6;
+	}
+	&--googleplus&:before {
+		color: #dd4b39;
+	}
+	&--youtube&:before {
+		color: #bb0000;
+	}
+	&:before {
+		transition: .2s;
+		font-size: bkscale(@font-swatch7-font-size, 1.2);
+	}
+	&:hover&:before {
+		color: @color-swatch5;
+		text-shadow: 0 0 1px darken(@color-swatch1, 10%);
+	}
+}
+
+
+// Basket quantity
+.quantity-wrap {
+	width: 100%;
+	line-height: @font-swatch7-line-height;
+}
+
+.quantity-field {
+	padding: 4px;
+}
+
+
+// Input fields
+input[type="search"],
+input[type="email"],
+input[type="password"],
+textarea,
+.input--single-line {
+	color: @color-swatch1;
+	background-color: @font-swatch7-color;
+	border: 1px solid fadeout(@font-swatch7-background-color, -100%);
+	&:hover {
+		color: @color-swatch1;
+		background-color: @font-swatch7-color;
+	}
+}
+
+
+// Tables
+th, td {
+	border: 1px solid lighten(@color-swatch1, 10%);
+}
+
+th {
+	background-color: lighten(@color-swatch1, 5%);
+}
+
+
+// Info messages
+.message {
+	padding-left: 0;
+	&:before {
+		position: inherit;
+	}
+}
+.message p {
+	display: inline-block;
+	padding-left: 3px;
 }
