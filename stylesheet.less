@@ -45,3 +45,45 @@
 	margin: 0 auto;
 	padding: 20px 0;
 }
+
+
+// Buttons
+.button,
+button {
+	border: 1px solid fadeout(@font-swatch7-background-color, -100%);
+}
+
+
+// Code
+pre, code {
+	background-color: darken(fadeout(@color-swatch1, 75%), 50%);
+	border: none;
+}
+
+
+// Selects
+.select-wrap {
+	border: 1px solid fadeout(@font-swatch7-background-color, -100%);
+	padding-right: 12px;
+	display: inline-block;
+	position: relative;
+	line-height: 1rem;
+	&:after {
+		content: "\f0d7";
+		margin-left: 5px;
+		font-family: 'FontAwesome', sans-serif;
+		text-rendering: auto;
+		-webkit-font-smoothing: antialiased;
+		position: absolute;
+		top: 25%;
+		right: 12px;
+	}
+	select {
+		height: auto;
+		.button;
+		-webkit-appearance: none;
+		border: none;
+		margin-right: -12px;
+		padding-right: 30px;
+	}
+}
