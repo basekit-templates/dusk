@@ -1,0 +1,62 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+
+	<header class="template-header">
+
+		<div class="full-width  full-width--flexbox">
+				<div class="header--left">
+					{{widget('logo', 'headerlogo', {
+						"defaultlogo": asset('images/logo.png')
+					})|raw}}
+
+					{{widget('companyname', 'headercompanyname', {
+						"business": "profile"
+					})|raw}}
+				</div>
+
+				{{widget('extendednavigation', 'headernavigation', {
+					"align":"right"
+				})|raw}}
+
+					{{widget('profile', 'headerprofile1', {
+					"profileType":"socialicons"
+				})|raw}}
+		</div>
+
+	</header>
+
+	<section class="template-content">
+
+		<div class="container  container--main">
+
+			{{widget('blogpostlist', 'allblogposts', {})|raw}}
+
+		</div>
+
+	</section>
+
+
+	<footer class="template-footer">
+
+		<div class="full-width  full-width--flexbox">
+
+			<div class="footer--left">
+				{{widget('profile', 'footerprofile1', {
+					"profileType":"form"
+				})|raw}}
+			</div>
+
+			<div class="footer--right">
+				{{widget('profile', 'footerprofile2', {
+					"profileType":"copyright",
+					"copyright":"profile"
+				})|raw}}
+			</div>
+
+		</div>
+
+	</footer>
+
+
+{% endblock %}
