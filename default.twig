@@ -5,27 +5,23 @@
 	<header class="template-header">
 
 		<div class="full-width  full-width--flexbox">
+				<div class="header--left">
+					{{widget('logo', 'headerlogo', {
+						"defaultlogo": asset('images/logo.png')
+					})|raw}}
 
-			<div class="header--left">
-				{{widget('logo', 'headerlogo', {
-					"defaultlogo": asset('images/logo.png')
-				})|raw}}
-
-				{{widget('companyname', 'headercompanyname', {
-					"business": "profile"
-				})|raw}}
+					{{widget('companyname', 'headercompanyname', {
+						"business": "profile"
+					})|raw}}
+				</div>
 
 				{{widget('extendednavigation', 'headernavigation', {
 					"align":"right"
 				})|raw}}
-			</div>
 
-			<div class="header--right">
-				{{widget('profile', 'headerprofile1', {
+					{{widget('profile', 'headerprofile1', {
 					"profileType":"socialicons"
 				})|raw}}
-			</div>
-
 		</div>
 
 	</header>

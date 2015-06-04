@@ -10,11 +10,12 @@
 // Header and footer
 .template-header,
 .template-footer {
-	padding: 20px 25px;
+	padding: 0 25px;
 	border: 0px solid @color-swatch2;
 }
 
 .template-header {
+	padding-left: 0;
 	border-bottom-width: 1px;
 }
 
@@ -22,6 +23,20 @@
 	border-top-width: 1px;
 }
 
+.header--left {
+	background-color: lighten(@color-swatch1, 10%);
+	> div:last-of-type {
+		margin-left: 0;
+	}
+	> div {
+		vertical-align: text-top;
+		margin: 20px 25px;
+		display: inline-block;
+	}
+}
+
+
+// Full width areas, header and footer
 .full-width--flexbox {
 	display: -webkit-box;
 	display: -moz-box;
@@ -36,6 +51,15 @@
 	-webkit-flex-wrap: wrap;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
+
+	[data-widget-type="extendednavigation"],
+	.footer--left {
+		-webkit-box-flex: 1;
+		-moz-box-flex: 1;
+		-webkit-flex: 1 1 auto;
+		-ms-flex: 1 1 auto;
+		flex: 1 1 auto;
+	}
 }
 
 
@@ -44,6 +68,18 @@
 	max-width: 85%;
 	margin: 0 auto;
 	padding: 20px 0;
+}
+
+
+// Hide toggle on desktop
+.navigation-toggle {
+	display: none;
+	&:after {
+		content: "\f0c9";
+	}
+	@media @tablet {
+		display: inline-block;
+	}
 }
 
 
@@ -119,23 +155,29 @@ pre, code {
 	&:hover {
 		text-decoration: none;
 	}
-	&--twitter&:before {
+	&--twitter:before {
 		color: #00aced;
 	}
-	&--facebook&:before {
+	&--facebook:before {
 		color: #3b5998;
 	}
-	&--rss&:before {
+	&--rss:before {
 		color: orange;
 	}
-	&--linkedin&:before {
+	&--linkedin:before {
 		color: #007bb6;
 	}
-	&--googleplus&:before {
+	&--googleplus:before {
 		color: #dd4b39;
 	}
-	&--youtube&:before {
+	&--youtube:before {
 		color: #bb0000;
+	}
+	&--paypal:before {
+		color: #009cde;
+	}
+	&--dropbox:before {
+		color: #007ee5;
 	}
 	&:before {
 		transition: .2s;
@@ -164,7 +206,9 @@ input[type="search"],
 input[type="email"],
 input[type="password"],
 textarea,
-.input--single-line {
+.input--single-line,
+.product-filters .input--search {
+	height: auto;
 	color: @color-swatch1;
 	background-color: @font-swatch7-color;
 	border: 1px solid fadeout(@font-swatch7-background-color, -100%);
