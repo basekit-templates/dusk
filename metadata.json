@@ -65,7 +65,7 @@
             "font-weight": "600",
             "line-height": "22px",
             "color": "@color-swatch6",
-            "color-hover": "@color-swatch7",
+            "color-hover": "darken(@color-swatch6, 20%)",
             "letter-spacing": "inherit",
             "background-color": "@color-swatch1",
             "background-color-hover": "@color-swatch1"
