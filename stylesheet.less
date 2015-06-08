@@ -8,21 +8,27 @@
 
 
 // Header and footer
+// -----------------
+
+// Header and footer padding
 .template-header,
 .template-footer {
 	padding: 0 25px;
 	border: 0px solid @color-swatch2;
 }
 
+// Header
 .template-header {
-	padding-left: 0;
+	padding-left: 0; // Allow logo and company area to reach browser edge
 	border-bottom-width: 1px;
 }
 
+// Footer
 .template-footer {
 	border-top-width: 1px;
 }
 
+// Logo and company name panel
 .header--left {
 	background-color: lighten(@color-swatch1, 10%);
 	> div:last-of-type {
@@ -36,7 +42,10 @@
 }
 
 
-// Full width areas, header and footer
+// Content wrappers and containers
+// -------------------------------
+
+// Full width header and footer
 .full-width--flexbox {
 	display: -webkit-box;
 	display: -moz-box;
@@ -52,6 +61,7 @@
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
 
+	// Prioritise navigation and left side of footer for flexbox
 	[data-widget-type="extendednavigation"],
 	.footer--left {
 		-webkit-box-flex: 1;
@@ -62,16 +72,61 @@
 	}
 }
 
-
-// Main
+// Container
 .container {
 	max-width: 85%;
 	margin: 0 auto;
+}
+
+// Main content
+.template-content {
 	padding: 20px 0;
+
+	// Blog layout
+	&--blog {
+		padding: 0;
+	}
 }
 
 
-// Hide toggle on desktop
+// Buttons
+// -------
+
+// Inherit initial styles
+input[type="search"],
+input[type="email"],
+input[type="password"],
+textarea,
+.input--single-line,
+.select-wrap,
+.review-link,
+.phone-number-link,
+.read-more,
+.responsiveslideshow .button--pagination {
+	.button;
+	width: 100%;
+	transition: border background .2s;
+}
+
+// Button specific styles
+.button,
+button,
+.item-remove,
+.quantity-wrap .button--quantity,
+.select-wrap,
+.review-link,
+.phone-number-link,
+.read-more,
+.responsiveslideshow .button--pagination {
+	width: auto;
+	height: auto;
+	padding: 4px 12px;
+	line-height: @font-swatch7-line-height;
+	transition: .2s;
+	border: 1px solid fadeout(@font-swatch7-background-color, -100%);
+}
+
+// Nav toggle (hide on desktop)
 .navigation-toggle {
 	display: none;
 	&:after {
@@ -83,43 +138,15 @@
 }
 
 
-// Button inheritance elements
-input[type="search"],
-input[type="email"],
-input[type="password"],
-textarea,
-.input--single-line,
-.select-wrap,
-.review-link,
-.phone-number-link {
-	.button;
-	width: 100%;
-	transition: border background .2s;
-}
+// Links
+// -----
 
-
-// Buttons
-.button,
-button,
-.item-remove,
-.quantity-wrap .button--quantity,
-.select-wrap,
-.review-link,
-.phone-number-link {
-	width: auto;
-	height: auto;
-	padding: 4px 12px;
-	line-height: @font-swatch7-line-height;
-	transition: .2s;
-	border: 1px solid fadeout(@font-swatch7-background-color, -100%);
-}
-
-
-// General links
+// Remove all underlines
 a:hover {
 	text-decoration: none;
 }
 
+// General link styles
 .content a,
 .tweet-metadata a,
 .email,
@@ -127,7 +154,6 @@ a .image-title,
 .category-link,
 .tag-link,
 .menu-item-name,
-.title-link,
 .summary-item-link {
 	border-bottom: 2px solid @color-swatch2;
 	color: @font-swatch5-color;
@@ -138,6 +164,7 @@ a .image-title,
 }
 
 // Code
+// ----
 pre, code {
 	background-color: darken(fadeout(@color-swatch1, 75%), 50%);
 	border: none;
@@ -145,6 +172,7 @@ pre, code {
 
 
 // Selects
+// -------
 .select-wrap {
 	padding: 0;
 	position: relative;
@@ -173,17 +201,18 @@ pre, code {
 }
 
 
-// Social links
+// Social icons
+// ------------
+
+// Hide text
 .social-name {
 	display: none;
 }
 
-
 // Icons
 .icon {
-	&:hover {
-		text-decoration: none;
-	}
+
+	// Brand colours
 	&--twitter:before {
 		color: #00aced;
 	}
@@ -208,10 +237,14 @@ pre, code {
 	&--dropbox:before {
 		color: #007ee5;
 	}
+
+	// Smooth colour transition on hover and scale up icons
 	&:before {
 		transition: .2s;
 		font-size: bkscale(@font-swatch7-font-size, 1.2);
 	}
+
+	// White on hover and dark shadow
 	&:hover:before {
 		color: @color-swatch5;
 		text-shadow: 0 0 1px darken(@color-swatch1, 10%);
@@ -219,18 +252,31 @@ pre, code {
 }
 
 
-// Basket quantity
-.quantity-wrap {
-	width: 100%;
-	line-height: @font-swatch7-line-height;
-}
+// Basket summary
+// --------------
+.ecombasketsummary {
 
-.quantity-field {
-	padding: 4px;
+	// Reset line height of quantity table cell
+	&__quantity-wrap {
+		width: 100%;
+		line-height: @font-swatch7-line-height;
+	}
+
+	// Equalise button widths
+	&__quantity-minus,
+	&__quantity-plus {
+		min-width: 24%;
+	}
+
+	// Match quantity number with button vertical alignemnt
+	&__quantity-field {
+		padding: 4px;
+	}
 }
 
 
 // Input fields
+// ------------
 input[type="search"],
 input[type="email"],
 input[type="password"],
@@ -249,6 +295,7 @@ textarea,
 
 
 // Tables
+// ------
 th, td {
 	border: 1px solid lighten(@color-swatch1, 10%);
 }
@@ -258,7 +305,8 @@ th {
 }
 
 
-// Info messages
+// General info messages
+// ---------------------
 .message {
 	padding-left: 0;
 	&:before {
@@ -271,13 +319,17 @@ th {
 }
 
 
-// Image captions
+// Image widget
+// ------------
 .image-title {
 	display: inline;
 }
 
 
-// Menu dietary items
+// Menu
+// ----
+
+// Dietary items
 .dietary-item,
 .dietary-item:hover {
 	&:before,
@@ -291,4 +343,168 @@ th {
 	&:after {
 		content: "]";
 	}
+}
+
+
+// Yelp reviews
+// ------------
+.yelpreview {
+	border: 1px solid lighten(@color-swatch1, 10%);
+	background-color: lighten(@color-swatch1, 5%);
+	&__yelp-title {
+		padding: 4px 12px;
+	}
+	&__review-list {
+		list-style: none;
+		background-color: @color-swatch1;
+		margin: 0;
+		padding: 4px 12px;
+	}
+}
+
+
+// Blog post list
+// --------------
+.blogpostlist {
+
+	// Blog post list summary layout
+	&__post-article,
+	&__post-article:last-child {
+		position: relative;
+		margin-bottom: 0;
+		padding: 40px 0;
+		text-align: center;
+	}
+
+	// Blog post list featured image positioning
+	&__image-link {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-size: cover;
+		background-position: center;
+		opacity: 0.5;
+	}
+	&__image {
+		display: none;
+	}
+	&__post-list-footer {
+		padding: 20px 25px;
+	}
+
+	// Blog pagination layout (flexbox)
+	&__pagination-list {
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+	}
+	&__pagination-item {
+		-moz-box-flex: 1;
+		-webkit-flex: 1 1 auto;
+		-ms-flex: 1 1 auto;
+		flex: 1 1 auto;
+		text-align: right;
+		&:first-of-type {
+			text-align: left;
+		}
+	}
+
+	// Blog pagination vertical alignment
+	&__button {
+		vertical-align: top;
+	}
+}
+
+
+// Single blog post
+// ----------------
+.blogpost {
+	padding-bottom: 20px;
+
+	// Featured image
+	&__image-link {
+		min-height: 400px;
+		background-size: cover;
+		background-position: center;
+		opacity: 0.5;
+	}
+	&__image {
+		display: none;
+	}
+
+	// Article padding removal
+	&__post-article,
+	&__post-article:last-child {
+		padding: 0;
+	}
+
+	// Post title positioning
+	&__post-content {
+		position: relative;
+	}
+	&__post-header {
+		position: absolute;
+		bottom: 100%;
+		width: 100%;
+	}
+
+	// Blog post content spacing
+	&__post-body {
+		padding-top: 20px;
+	}
+}
+
+
+// Single blog post and blog post list
+// -----------------------------------
+
+// Inherit container styles
+.post-content,
+.post-footer {
+	.container;
+	position: relative;
+	z-index: 1;
+}
+
+// Blog and twitter dates / meta
+.timestamp,
+.tweet-metadata,
+.tweet-metadata a {
+	display: inline-block;
+	color: fadeout(@font-swatch5-color, 25%);
+	font-size: bkscale(@font-swatch5-font-size, 0.9);
+}
+
+// Blog titles
+.title-link {
+	color: inherit;
+	border-bottom: 0;
+
+	// Decorative keylines
+	&:before,
+	&:after {
+		display: inline-block;
+		content: "";
+		border-bottom: 1px solid fadeout(@font-swatch2-color, 50%);
+		width: 1em;
+		margin: .3em .5em;
+		transition: .2s;
+	}
+	&:hover {
+		&:before,
+		&:after {
+			border-color: @font-swatch2-color;
+			margin: .3em .8em;
+		}
+	}
+}
+
+
+// Slideshow
+// ---------
+.responsiveslideshow .responsiveslideshow {
+
 }
