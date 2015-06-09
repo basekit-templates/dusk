@@ -216,7 +216,7 @@ pre, code {
 // Icons
 .icon {
 
-	// Brand colours
+	// Branded colours
 	&--twitter:before {
 		color: #00aced;
 	}
@@ -599,5 +599,64 @@ small,
 	}
 	&__tweet-content {
 		padding-bottom: 0;
+	}
+}
+
+
+// Dropbox download button
+// -----------------------
+.dropbox {
+
+	// Emulate button typography
+	&__label {
+		.button;
+		background-color: transparent;
+	}
+	&__label:hover {
+		background-color: transparent;
+	}
+}
+
+
+// Image gallery
+// -------------
+
+.gallery {
+	&__gallery-item {
+		width: 25%;
+		float: left;
+		overflow: hidden;
+	}
+	&__figure {
+		position: relative;
+
+		perspective-origin: bottom;
+		perspective: 1000px;
+	}
+	&__caption {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		margin: 0;
+		padding: 10px 15px;
+		opacity: 0;
+		transition: .5s;
+		background-color: fadeout(@color-swatch1, 50%);
+
+		transform: rotateX(90deg);
+		transform-origin: bottom;
+	}
+	&__gallery-item:hover .caption {
+		opacity: 1;
+		transform: rotateX(0deg);
+	}
+	&__image-link {
+		background-size: cover;
+		background-position: center;
+		height: 0;
+		padding-bottom: 100%;
+	}
+	&__image {
+		visibility: hidden;
 	}
 }
