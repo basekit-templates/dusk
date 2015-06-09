@@ -17,6 +17,10 @@
 	border: 0px solid @color-swatch2;
 }
 
+.template-footer {
+	padding: 20px 25px;
+}
+
 // Header
 .template-header {
 	padding-left: 0; // Allow logo and company area to reach browser edge
@@ -96,15 +100,14 @@
 input[type="search"],
 input[type="email"],
 input[type="password"],
-textarea,
 .input--single-line,
+textarea,
 .select-wrap,
 .review-link,
 .phone-number-link,
 .read-more,
 .responsiveslideshow .button--pagination {
 	.button;
-	width: 100%;
 	transition: border background .2s;
 }
 
@@ -154,7 +157,8 @@ a .image-title,
 .category-link,
 .tag-link,
 .menu-item-name,
-.summary-item-link {
+.summary-item-link,
+.account-link {
 	border-bottom: 2px solid @color-swatch2;
 	color: @font-swatch5-color;
 	transition: .2s;
@@ -192,7 +196,7 @@ pre, code {
 		position: relative;
 		z-index: 1;
 		height: auto;
-		width: auto;
+		width: 100%;
 		-webkit-appearance: none;
 		border: none;
 		background-color: transparent;
@@ -244,10 +248,9 @@ pre, code {
 		font-size: bkscale(@font-swatch7-font-size, 1.2);
 	}
 
-	// White on hover and dark shadow
+	// White on hover
 	&:hover:before {
 		color: @color-swatch5;
-		text-shadow: 0 0 1px darken(@color-swatch1, 10%);
 	}
 }
 
@@ -284,6 +287,7 @@ textarea,
 .input--single-line,
 .product-filters .input--search {
 	height: auto;
+	width: 100%;
 	color: @color-swatch1;
 	background-color: @font-swatch7-color;
 	border: 1px solid fadeout(@font-swatch7-background-color, -100%);
@@ -390,8 +394,10 @@ th {
 	&__image {
 		display: none;
 	}
+
+	// Blog pagination
 	&__post-list-footer {
-		padding: 20px 25px;
+		padding: 20px 0;
 	}
 
 	// Blog pagination layout (flexbox)
@@ -417,6 +423,12 @@ th {
 		vertical-align: top;
 	}
 }
+
+// Add left and right padding on pagination when on blog page
+.template-content--blog .post-list-footer {
+	padding: 20px 25px;
+}
+
 
 
 // Single blog post
@@ -445,16 +457,19 @@ th {
 	&__post-content {
 		position: relative;
 	}
-	&__post-header {
-		position: absolute;
-		bottom: 100%;
-		width: 100%;
-	}
 
 	// Blog post content spacing
 	&__post-body {
 		padding-top: 20px;
 	}
+}
+
+// Position post title over image
+.blogpost__post-image + .post-content .post-header {
+	position: absolute;
+	bottom: 100%;
+	width: 100%;
+	text-align: center;
 }
 
 
@@ -470,6 +485,7 @@ th {
 }
 
 // Blog and twitter dates / meta
+small,
 .timestamp,
 .tweet-metadata,
 .tweet-metadata a {
@@ -503,8 +519,85 @@ th {
 }
 
 
-// Slideshow
-// ---------
-.responsiveslideshow .responsiveslideshow {
+// Single field forms
+// ------------------
+.signupform,
+.blogsearch,
+.ecomproductslist {
 
+	// Hide legend
+	&__legend {
+		display: none;
+	}
+
+	// Initiate flexbox
+	&__form-body {
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+
+		-webkit-align-items: flex-end;
+		-ms-flex-align: end;
+		align-items: flex-end;
+	}
+
+	// Reset margins
+	.form-group {
+		margin: 0;
+	}
+
+	// Prioritise field
+	&__form-group:first-of-type {
+		-webkit-flex: 1 1 auto;
+		-ms-flex: 1 1 auto;
+		flex: 1 1 auto;
+		margin-right: -1px;
+	}
+
+	// Product filter selects
+	.select-wrap {
+		width: 100%;
+	}
+}
+
+
+// Product filters spacing
+.fieldset--filters .form-group {
+	margin-right: 10px;
+	-webkit-flex: 1 1 auto;
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
+
+	&:last-of-type {
+		margin-right: 0;
+	}
+
+}
+
+
+// Twitter feed
+// ------------
+.twitter {
+	&__tweet-item {
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+
+		-webkit-align-items: center;
+		-ms-flex-align: center;
+		align-items: center;
+	}
+	&__tweet-wrap {
+		-webkit-flex: 1 1 auto;
+		-ms-flex: 1 1 auto;
+		flex: 1 1 auto;
+	}
+	&__avatar {
+		padding-right: 15px;
+		max-width: 94px;
+
+	}
+	&__tweet-content {
+		padding-bottom: 0;
+	}
 }
