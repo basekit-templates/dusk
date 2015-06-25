@@ -6,6 +6,11 @@
 // ----------------
 @import "@{templateCommon}/bk-less-framework.less";     // BK LESS Framework
 
+// General typography
+body {
+	-webkit-font-smoothing: antialiased;
+	text-rendering: geometricPrecision;
+}
 
 // Header and footer
 // -----------------
@@ -674,4 +679,10 @@ small,
 		transform: rotateX(90deg);
 		transform-origin: bottom;
 	}
+}
+
+// All lightboxes
+.lb-outerContainer,
+.lightbox .lb-image {
+	border-radius: 0;
 }
