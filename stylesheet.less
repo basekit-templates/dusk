@@ -329,6 +329,11 @@ th {
 	display: inline;
 }
 
+.imagewidget {
+	&__figure {
+		display: inline-block;
+	}
+}
 
 // Menu
 // ----
@@ -627,15 +632,38 @@ small,
 		float: left;
 		overflow: hidden;
 	}
+	&__image-link {
+		background-size: cover;
+		background-position: center;
+		height: 0;
+		padding-bottom: 100%;
+	}
+	&__image {
+		visibility: hidden;
+	}
+}
+
+
+// All image captions
+// ------------------
+
+.imagewidget,
+.gallery,
+.responsiveslideshow {
 	&__figure {
 		position: relative;
-
 		perspective-origin: bottom;
 		perspective: 1000px;
+		&:hover .caption {
+			opacity: 1;
+			transform: rotateX(0deg);
+		}
 	}
-	&__caption {
+	&__caption,
+	.caption {
 		position: absolute;
 		left: 0;
+		right: 0;
 		bottom: 0;
 		margin: 0;
 		padding: 10px 15px;
@@ -645,18 +673,5 @@ small,
 
 		transform: rotateX(90deg);
 		transform-origin: bottom;
-	}
-	&__gallery-item:hover .caption {
-		opacity: 1;
-		transform: rotateX(0deg);
-	}
-	&__image-link {
-		background-size: cover;
-		background-position: center;
-		height: 0;
-		padding-bottom: 100%;
-	}
-	&__image {
-		visibility: hidden;
 	}
 }
