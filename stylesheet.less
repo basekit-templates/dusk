@@ -165,7 +165,8 @@ a .image-title,
 .summary-item-link,
 .account-link,
 .ecomproductslist__title-link,
-.ecomfeaturedproducts__title-link {
+.ecomfeaturedproducts__title-link,
+.ecombasket__basket-item-name {
 	border-bottom: 2px solid @color-swatch2;
 	color: @font-swatch5-color;
 	transition: .2s;
@@ -253,6 +254,7 @@ pre, code {
 	&:before {
 		transition: .2s;
 		font-size: bkscale(@font-swatch7-font-size, 1.2);
+		font-weight: normal;
 	}
 
 	// White on hover
@@ -378,7 +380,7 @@ th {
 	border: 1px solid lighten(@color-swatch1, 10%);
 	background-color: lighten(@color-swatch1, 5%);
 	&__yelp-title {
-		padding: 4px 12px;
+		padding: 4px 12px 10px;;
 	}
 	&__review-list {
 		list-style: none;
@@ -386,6 +388,14 @@ th {
 		margin: 0;
 		padding: 4px 12px;
 	}
+}
+
+.review-rating {
+/*
+	img {
+		display: none;
+	}
+*/
 }
 
 
