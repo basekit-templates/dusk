@@ -40,14 +40,23 @@ body {
 // Logo and company name panel
 .header--left {
 	background-color: lighten(@color-swatch1, 10%);
-	> div:last-of-type {
+	-webkit-align-self: stretch;
+	-ms-flex-item-align: stretch;
+	align-self: stretch;
+	> div + div {
 		margin-left: 0;
 	}
 	> div {
-		vertical-align: text-top;
-		margin: 20px 25px;
+		vertical-align: middle;
+		margin: 1.6em 1.8em;
 		display: inline-block;
 	}
+}
+
+.logo-link,
+.widget__logo {
+	font-size: 0;
+	line-height: 0;
 }
 
 
