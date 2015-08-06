@@ -51,11 +51,7 @@ body {
 	}
 
 	> div + div {
-		margin-left: 0;
-
-		@media @tablet {
-			margin: 0;
-		}
+		margin: 0.5em 0 0;
 	}
 	// Brings editor preview in line with live site
 	> .bk-tpl-hidden + div {
@@ -78,9 +74,10 @@ body {
 	line-height: 0;
 }
 
-[data-widget-type="companyname"] {
-	position: relative;
-	top: 2px;
+.bk-companyname {
+	@media @tablet {
+		line-height: bkscale(@font-swatch10-line-height, 0.95);
+	}
 }
 
 
@@ -157,7 +154,7 @@ body {
 	}
 }
 
-.navigation-item.folder .item-name:after {
+.navigation-item.folder span.item-name:after {
 	content: "\f0d7";
 	margin-left: 5px;
 	font-family: 'FontAwesome', sans-serif;
