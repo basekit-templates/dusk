@@ -28,7 +28,8 @@ body {
 
 // Header
 .template-header {
-	padding-left: 0; // Allow logo and company area to reach browser edge
+	padding: 0; // Allow logo and company area to reach browser edge
+	position: relative;
 	border-bottom-width: 1px;
 }
 
@@ -45,11 +46,16 @@ body {
 	align-self: stretch;
 
 	@media @tablet {
-		max-width: 70%;
+		padding: 2em;
+		width: 100%;
 	}
 
 	> div + div {
 		margin-left: 0;
+
+		@media @tablet {
+			margin: 0;
+		}
 	}
 	// Brings editor preview in line with live site
 	> .bk-tpl-hidden + div {
@@ -59,6 +65,10 @@ body {
 		vertical-align: middle;
 		margin: 1.6em 1.8em;
 		display: inline-block;
+
+		@media @tablet {
+			margin: 0 0.75em 0 0;
+		}
 	}
 }
 
@@ -66,6 +76,11 @@ body {
 .widget__logo {
 	font-size: 0;
 	line-height: 0;
+}
+
+[data-widget-type="companyname"] {
+	position: relative;
+	top: 2px;
 }
 
 
@@ -111,6 +126,8 @@ body {
 
 	@media @tablet {
 		margin: 1em 2em;
+		max-width: 75%;
+		position: relative;
 	}
 }
 
@@ -126,6 +143,12 @@ body {
 	padding-right: 0;
 	left: -18px;
 	width: 120px;
+
+	@media @tablet {
+		left: initial;
+		position: relative;
+		width: auto;
+	}
 }
 
 .navigation-item {
@@ -134,19 +157,36 @@ body {
 	}
 }
 
+.navigation-item.folder .item-name:after {
+	content: "\f0d7";
+	margin-left: 5px;
+	font-family: 'FontAwesome', sans-serif;
+	font-size: 11px;
+	line-height: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	position: absolute;
+	top: 12px;
+	padding: 4px 0;
+	right: 1px;
+}
+
 .navigation-list {
 	padding-right: 14px;
 
 	@media @tablet {
 		display: none;
-		opacity: 0;
 		padding-right: 0;
-		transition: opacity, 3s, ease-in-out;
 
 		&.open {
 			display: block;
-			opacity: 1;
 		}
+	}
+}
+
+.extendednavigation__navigation-list {
+	@media @tablet {
+		padding: 0 1em;
 	}
 }
 
@@ -154,7 +194,7 @@ body {
 	@media @tablet {
 		position: absolute;
 		right: 2em;
-		top: 2em;
+		bottom: 15px;
 	}
 }
 
@@ -578,6 +618,10 @@ th {
 		}
 	}
 
+	&__post-content {
+		padding: 0 30px;
+	}
+
 	// Blog pagination
 	&__post-list-footer {
 		padding: 20px 0;
@@ -635,25 +679,19 @@ th {
 	&__post-article:last-child {
 		padding: 0;
 	}
-
-	// Post title positioning
-	&__post-content {
-		max-width: 920px;
-		position: relative;
-	}
-
-	// Blog post content spacing
-	&__post-body {
-		padding: 20px 30px;
-	}
 }
 
 // Position post title over image
 .blogpost__post-image + .post-content .post-header {
 	position: absolute;
-	bottom: 100%;
+	bottom: 101%;
 	width: 100%;
 	text-align: center;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	max-width: 920px;
+	padding: 0 30px;
 }
 
 .post-header {
@@ -667,7 +705,9 @@ th {
 // Inherit container styles
 .post-content,
 .post-footer {
-	.container;
+	margin: 0 auto;
+	max-width: 920px;
+	padding: 0 30px;
 	position: relative;
 	z-index: 1;
 }
