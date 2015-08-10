@@ -201,12 +201,14 @@ body {
 }
 
 .bk-extendednavigation + .bk-overlay {
-	right: 1.7em;
-	left: initial;
-	top: initial;
-	bottom: 15px;
-	height: 32px;
-	width: 75px;
+	@media @tablet {
+		right: 1.7em;
+		left: initial;
+		top: initial;
+		bottom: 15px;
+		height: 32px;
+		width: 75px;
+	}
 }
 
 
@@ -374,10 +376,20 @@ label {
 		z-index: 1;
 		height: auto;
 		width: 100%;
-		-webkit-appearance: none;
+		-webkit-appearance:none;
+		-moz-appearance:none;
+		-o-appearance:none;
+		appearance:none; 
 		border: none;
 		background-color: transparent;
 		padding: 4px 30px 4px 12px;
+	}
+	select::-ms-expand {
+		display: none;
+	}
+	select option {
+		background-color: white;
+		color: black;
 	}
 }
 
@@ -437,6 +449,11 @@ label {
 // --------------
 .ecombasketsummary {
 
+	// Makes image width more consistent across browser
+	&__image {
+		width: 100%;
+	}
+
 	// Reset line height of quantity table cell
 	&__quantity-wrap {
 		width: 100%;
@@ -464,7 +481,7 @@ input[type="password"],
 textarea,
 .input--single-line,
 .product-filters .input--search {
-	height: auto;
+	height: 32px;
 	width: 100%;
 	color: @color-swatch1;
 	background-color: @font-swatch7-color;
@@ -577,6 +594,24 @@ th {
 // --------------
 .blogpostlist {
 
+	&__blog-home-link {
+		color: @font-swatch6-color;
+		display: block;
+		padding: 1.25em 0;
+		text-align: center;
+
+		&:before {
+			content: "<";
+			padding-right: 0.65em;
+			position: relative;
+			top: 1px;
+		}
+
+		&:hover {
+			background-color: @color-swatch3;
+		}
+	}
+
 	// Blog post list summary layout
 	&__post-article,
 	&__post-article:last-child {
@@ -627,10 +662,6 @@ th {
 				margin: .3em .8em;
 			}
 		}
-	}
-
-	&__post-content {
-		padding: 0 30px;
 	}
 
 	// Blog pagination
@@ -723,6 +754,10 @@ th {
 	z-index: 1;
 }
 
+.post-content {
+	padding: 30px;
+}
+
 // Blog and twitter dates / meta
 small,
 .timestamp,
@@ -813,7 +848,7 @@ small,
 	}
 
 	@media @mobile {
-		margin-right; 0;
+		margin-right: 0;
 		width: 100%;
 	}
 
