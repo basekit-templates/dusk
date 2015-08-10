@@ -41,9 +41,15 @@ body {
 // Logo and company name panel
 .header--left {
 	background-color: lighten(@color-swatch1, 10%);
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
 	-webkit-align-self: stretch;
 	-ms-flex-item-align: stretch;
 	align-self: stretch;
+	padding-left: 1.8em;
 
 	@media @tablet {
 		padding: 2em;
@@ -51,7 +57,7 @@ body {
 	}
 
 	> div + div {
-		margin: 0.5em 1.8em 0;
+		margin: 0.5em 1.8em 0 0;
 
 		@media @tablet {
 			margin: 0.5em 0 0;
@@ -63,8 +69,11 @@ body {
 	}
 	> div {
 		vertical-align: middle;
-		margin: 1.6em 1.8em;
+		margin: 1.6em 1.8em 1.6em 0;
 		display: inline-block;
+		-webkit-align-self: center;
+		-ms-flex-item-align: center;
+		align-self: center;
 
 		@media @tablet {
 			margin: 0 0.75em 0 0;
@@ -124,11 +133,10 @@ body {
 
 // Add margin to profile widget
 .template-header [data-widget-type="profile"] {
-	margin-left: 1.5em;
+	margin: 1em 1.5em;
 
 	@media @tablet {
 		margin: 1em 2em;
-		max-width: 50%;
 		position: relative;
 	}
 }
@@ -205,12 +213,12 @@ body {
 
 .bk-extendednavigation + .bk-overlay {
 	@media @tablet {
-		right: 1.7em;
-		left: initial;
-		top: initial;
-		bottom: 15px;
-		height: 32px;
-		width: 75px;
+		right: 1.7em!important;
+		left: initial!important;
+		top: 2em!important;
+		bottom: initial!important;
+		height: 44px!important;
+		width: 46px!important;
 	}
 }
 
