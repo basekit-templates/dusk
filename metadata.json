@@ -2,6 +2,7 @@
     "name": "Dusk",
     "thumbnail": "dusk.png",
     "widgetVersion":2,
+    "templateType":"blog",
     "pageTypes": [
         "blogpostlist",
         "blogpost"
