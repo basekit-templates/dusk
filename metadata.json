@@ -1,6 +1,7 @@
 {
     "name": "Dusk",
     "thumbnail": "dusk.png",
+    "screenshot": "dusk-screenshot.jpg",
     "widgetVersion":2,
     "templateType":"blog",
     "pageTypes": [
