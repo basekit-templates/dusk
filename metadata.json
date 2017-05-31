@@ -4,10 +4,7 @@
     "screenshot": "dusk-screenshot.jpg",
     "widgetVersion":2,
     "templateType":"blog",
-    "pageTypes": [
-        "blogpostlist",
-        "blogpost"
-    ],
+    "pageTypes": ["home"],
     "colorSwatches":
     {
         "Swatch 1": {
